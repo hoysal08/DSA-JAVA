@@ -53,3 +53,30 @@ class Solution {
     }
 }
 ```
+
+### Optimized with Single Pass
+### to calculate the prefix, update the answer array and for the suffix maintain a variable and multiple that with current number always
+#### Space Complexity: O(1)
+#### Time Complexity: O(n)
+```java
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int[] answer = new int[n];
+
+        answer[0] = 1;
+        for(int i = 1; i < n ; i++){
+            answer[i] = answer[i-1] * nums[i - 1];
+        }
+
+        int right = 1;
+        for(int i = n - 1; i >= 0 ; i--){
+            answer[i] *=right;
+            right *= nums[i];
+        }
+        
+        return answer;
+    }
+}
+
+```
