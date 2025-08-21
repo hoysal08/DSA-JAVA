@@ -6,7 +6,7 @@ import java.util.*;
 //TLE
 //brute force
 //Time: O(N * N * N * log3); Space: O(N)
-class Solution {
+class bruteForceSolution {
     public List<List<Integer>> threeSum(int[] nums) {
         Set<List<Integer>> resultSet = new HashSet();
         int n = nums.length;
